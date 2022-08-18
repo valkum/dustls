@@ -1,6 +1,8 @@
 use rustls::internal::msgs as r_msgs;
 
-pub mod hs;
+use super::handshake;
+
+
 
 // Represents the protocol layer
 
@@ -8,7 +10,7 @@ pub mod hs;
 #[derive(Debug)]
 pub enum MessagePayload {
     Alert(r_msgs::alert::AlertMessagePayload),
-    Handshake(hs::HandshakeMessagePayload),
+    Handshake(handshake::HandshakeMessagePayload),
     ChangeCipherSpec(r_msgs::ccs::ChangeCipherSpecPayload),
     ApplicationData(r_msgs::base::Payload),
 }
